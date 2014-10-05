@@ -2,21 +2,14 @@ var gulp        = require('gulp');
 var deploy      = require('gulp-gh-pages');
 var ejs         = require("gulp-ejs");
 var gutil       = require('gulp-util');
-
-var config = {
-    templates : __dirname + '/src/*.ejs',
-    assets : __dirname + '/src/assets/**/*',
-    src: __dirname + '/src',
-    buildpath : './build'
-}
-
+var config      = require('./config.json');
 
 /**
  *  Templates
  */
 gulp.task('templates', function(){
     gulp.src([config.templates])
-        .pipe(ejs()).on('error', gutil.log)
+        .pipe(ejs(config.data)).on('error', gutil.log)
         .pipe(gulp.dest(config.buildpath));
 });
 

@@ -1,0 +1,9 @@
+{
+    "templates" :  "src/*.ejs",
+    "assets" : "src/assets/**/*",
+    "src": "src",
+    "buildpath" : "build",
+    "data" : {
+        "title": "Natalia Titova"
+    }
+}
