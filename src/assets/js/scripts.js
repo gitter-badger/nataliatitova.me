@@ -738,12 +738,23 @@ $(document).ready(function () {
 $(document).ready(function () {
 	
 	function initialize() {
+        var centerLatlng = new google.maps.LatLng(40.7611502, -73.9597222);
+
 		var mapOptions = {
 			zoom: 13,
-			center: new google.maps.LatLng(40.7902778, -73.9597222),
-			disableDefaultUI: true
+			center: centerLatlng,
+            scrollwheel: false
 		}
 		var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        // Marker
+        var riLatLng = new google.maps.LatLng(40.7611502,-73.9508123);
+
+        var marker = new google.maps.Marker({
+            position: riLatLng,
+            map: map,
+            title:"Roosevelt Island"
+        });
 	}
 	
 	google.maps.event.addDomListener(window, 'load', initialize);
