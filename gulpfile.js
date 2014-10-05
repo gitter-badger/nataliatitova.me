@@ -1,29 +1,43 @@
-var gulp = require('gulp');
-var Metalsmith = require('metalsmith');
+var gulp        = require('gulp');
 var deploy      = require('gulp-gh-pages');
+var ejs         = require("gulp-ejs");
+var gutil       = require('gulp-util');
 
-function metalsmith()
-{
-    Metalsmith(__dirname)
-        .destination('./build')
-        .build(
-        function(err){
-            if (err) throw err;
-        }
-    );
+var config = {
+    templates : __dirname + '/src/*.ejs',
+    assets : __dirname + '/src/assets/**/*',
+    src: __dirname + '/src',
+    buildpath : './build'
 }
 
+
 /**
- * Default - run metalsmith
+ *  Templates
  */
-gulp.task('default', function() {
-    metalsmith();
+gulp.task('templates', function(){
+    gulp.src([config.templates])
+        .pipe(ejs()).on('error', gutil.log)
+        .pipe(gulp.dest(config.buildpath));
 });
 
 /**
- * Push build to gh-pages
+ *  Assets
+ */
+gulp.task('assets', function(){
+    gulp.src([config.assets])
+        .pipe(gulp.dest(config.buildpath + '/assets'));
+});
+
+/**
+ *  Default
+ */
+gulp.task('default', ['templates', 'assets'], function() {
+});
+
+/**
+ *  Push build to gh-pages
  */
 gulp.task('deploy', function () {
-    return gulp.src("./build/**/*")
+    return gulp.src(config.buildpath + '/**/*')
         .pipe(deploy())
 });
