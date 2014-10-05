@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Natalia Titova</title>
+    <title><%= title %></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -63,8 +63,9 @@
     <div class="container">
 
         <ul class="info pull-left">
-            <li><a href="#"><i class="icon-mail-1 contact"></i>info@nataliatitova.com</a></li>
-            <li><i class="icon-s-skype contact"></i> nataliabobr</li>
+            <li><a href="mailto:<%= email %>"><i class="icon-mail-1 contact"></i><%= email %></a></li>
+            <li><i class="icon-s-skype contact"></i><%= skype %></li>
+            <li><a href="<%= twitter_path %>"><i class="icon-s-twitter contact"></i><%= twitter_handle %></a></li>
         </ul>
         <!-- /.info -->
 
@@ -80,7 +81,7 @@
 
         <!-- ============================================================= LOGO MOBILE ============================================================= -->
 
-        <h1><a class="navbar-brand" href="index.html">Natalia Titova</a></h1>
+        <h1><a class="navbar-brand" href="index.html"><%= name %></a></h1>
 
         <!-- ============================================================= LOGO MOBILE : END ============================================================= -->
 
@@ -106,7 +107,7 @@
 <ul class="nav navbar-nav">
 
 <li>
-    <a href="index.html" style="color:#1ABB9C">Natalia Titova</a>
+    <a href="index.html" style="color:#1ABB9C"><%= name %></a>
 </li>
 
 <li class="dropdown">

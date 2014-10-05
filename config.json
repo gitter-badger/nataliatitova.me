@@ -4,6 +4,11 @@
     "src": "src",
     "buildpath" : "build",
     "data" : {
-        "title": "Natalia Titova"
+        "title": "Natalia Titova",
+        "name": "Natalia Titova",
+        "email": "info@nataliatitova.com",
+        "skype": "nataliabobr",
+        "twitter_path": "https://twitter.com/NataliaTitova",
+        "twitter_handle": "@NataliaTitova"
     }
 }
